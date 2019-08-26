@@ -1,6 +1,7 @@
 OCAMLC := ocamlc
 OCAMLOPT := ocamlopt
 OCAMLMKLIB := ocamlmklib
+OCAMLFIND := ocamlfind
 OCAMLC_WHERE := $(shell ocamlc -where)
 CXX := g++
 INC_IRRLICHT := /usr/include/irrlicht
@@ -87,6 +88,12 @@ irrlicht.cma:  $(CMO_FILES)  dllirrlicht_stubs.so
 	$(OCAMLC) -a -o $@  $(CMO_FILES)  -dllib -lirrlicht_stubs \
 	    -ccopt $(LD_PATH) \
 	    -cclib $(LINK_LIB)
+
+install:
+	$(OCAMLFIND) install irrlicht META *.cma *.cmxa *.cmi *.mli *.so *.a
+
+uninstall:
+	$(OCAMLFIND) remove irrlicht
 
 clean:
 	$(RM) *.[oa] *.so *.cm[ixoa] *.cmx[as]

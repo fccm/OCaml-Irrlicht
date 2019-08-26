@@ -26,7 +26,7 @@ repository.
  
 REQUIRES
 
-Irrlicht (it should work on 1.7.x) : http://irrlicht.sourceforge.net/
+Irrlicht (was tested with version 1.8.4) : http://irrlicht.sourceforge.net/
 OCaml : http://caml.inria.fr/index.en.html
 A C++ compiler. Only g++ ( http://gcc.gnu.org/ ) has been tested.
 findlib : http://projects.camlcity.org/projects/findlib.html (recommended)

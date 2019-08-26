@@ -2,12 +2,14 @@ OCAMLC := ocamlc
 OCAMLOPT := ocamlopt
 OCAMLMKLIB := ocamlmklib
 OCAMLFIND := ocamlfind
+OCAMLDOC := ocamldoc
 OCAMLC_WHERE := $(shell ocamlc -where)
 CXX := g++
 INC_IRRLICHT := /usr/include/irrlicht
 LINK_LIB := -lIrrlicht
 LD_DIR := /usr/lib
 LD_PATH := -L$(LD_DIR)
+DOC_DIR := ./doc/
 
 
 lib: irrlicht.cma
@@ -99,6 +101,25 @@ clean:
 	$(RM) *.[oa] *.so *.cm[ixoa] *.cmx[as]
 	$(MAKE) -C hash_values/ clean
 	$(MAKE) -C enums/ clean
+
+.PHONY: doc clean_doc
+doc:
+	mkdir -p $(DOC_DIR)
+	$(OCAMLDOC) $(MLI_FILES) \
+	  irr_enums.mli \
+	  irr_core.mli \
+	  irr_video.mli \
+	  irr_io.mli \
+	  irr_gui.mli \
+	  irr_scene.mli \
+	  irr_base.mli \
+	  irr.mli \
+          -colorize-code -html \
+          -d $(DOC_DIR)
+
+clean_doc:
+	$(RM) $(DOC_DIR)/*
+	$(RM) -r $(DOC_DIR)
 
 
 

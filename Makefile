@@ -97,6 +97,8 @@ uninstall:
 
 clean:
 	$(RM) *.[oa] *.so *.cm[ixoa] *.cmx[as]
+	$(MAKE) -C hash_values/ clean
+	$(MAKE) -C enums/ clean
 
 
 

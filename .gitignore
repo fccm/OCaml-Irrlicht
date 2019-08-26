@@ -12,3 +12,5 @@ a.out
 .*.swp
 _*
 *~
+examples/*/main
+doc

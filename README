@@ -73,7 +73,9 @@ The media files are distributed with the official Irrlicht distribution:
 
 http://irrlicht.sourceforge.net/downloads.html
 
-You just have to build a symbolique lynk "media" in the root directory
+You just have to build a symbolique lynk "media" in the root directory:
+
+ln -s ../irrlicht-1.8.4/media media
 
 USE THE LIBRARY
 

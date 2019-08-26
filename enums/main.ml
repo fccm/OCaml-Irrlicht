@@ -8,8 +8,10 @@ let get_dec () =
 
 let ml_name e s =
   let s1 = String.sub s e.prefix (String.length s - e.prefix) in
-  let s2 = String.lowercase s1 in
-  if not e.poly then s2.[0] <- Char.uppercase s2.[0];
+  let s2 = String.lowercase_ascii s1 in
+  let s2 =
+    if e.poly then s2 else String.capitalize_ascii s2
+  in
   if s2 = "end" then "ends"
   else match s2.[0] with
   | '0'..'9' -> sprintf "_%s" s2

@@ -12,12 +12,12 @@ let on_event = function
   | _ -> false
 
 module Colour_func : sig
-  type t = float -> float -> float -> Irr_core.color
+  type t = float -> float -> float -> int Irr_core.color
   val grey : t
   val yellow : t
   val white : t
 end = struct
-  type t = float -> float -> float -> Irr_core.color
+  type t = float -> float -> float -> int Irr_core.color
   let grey x y z =
     let n = int_of_float (255. *. z) in
     Irr_core.color_ARGB 255 n n n
@@ -190,13 +190,13 @@ let () =
     if is_key_down `key_w then
       mesh_node#set_material_flag `wireframe
         (not (mesh_node#material 0)#wireframe);
-    if is_key_down `key_1 then (
+    if is_key_down `key_a then (
       Height_map.generate hm Generate_func.eggbox;
       Mesh.init mesh hm 50. Colour_func.grey driver);
-    if is_key_down `key_2 then (
+    if is_key_down `key_b then (
       Height_map.generate hm Generate_func.moresine;
       Mesh.init mesh hm 50. Colour_func.yellow driver);
-    if is_key_down `key_3 then (
+    if is_key_down `key_c then (
       Height_map.generate hm Generate_func.justexp;
       Mesh.init mesh hm 50. Colour_func.yellow driver); 
     driver#begin_scene ();

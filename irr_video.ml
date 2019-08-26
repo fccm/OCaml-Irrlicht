@@ -379,7 +379,7 @@ class driver obj = object(self)
     driver_make_color_key_from_px self#obj tex#obj pos zero_texels
   method fps = driver_get_fps self#obj
   method name =
-    String.copy (driver_get_name self#obj)
+    (driver_get_name self#obj)
   method set_texture_creation_flag flag b =
     driver_set_texture_creation_flag self#obj flag b
   method set_transform state mat = driver_set_transform self#obj state mat

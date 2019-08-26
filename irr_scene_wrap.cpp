@@ -94,9 +94,11 @@ extern "C" CAMLprim value ml_ISceneNode_clone(value v_node, value v_parent) {
 	return (value) ((ISceneNode*) v_node)->clone(parent);
 }
 
+/* TODO: update this function
 extern "C" CAMLprim value ml_ISceneNode_getAutomaticCulling(value v_node) {
 	return Val_culling_type(((ISceneNode*) v_node)->getAutomaticCulling());
 }
+*/
 
 extern "C" CAMLprim value ml_ISceneNode_getBoundingBox(value v_node) {
 	return copy_aabbox3df(((ISceneNode*) v_node)->getBoundingBox());

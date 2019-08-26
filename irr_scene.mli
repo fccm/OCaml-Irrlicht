@@ -30,7 +30,9 @@ class node : obj -> object
   method material : int -> Irr_video.material
   method add_animator : animator -> unit
   method add_child : node -> unit
+  (* TODO: update this function
   method automatic_culling : Irr_enums.culling_type
+  *)
   method bounding_box : float Irr_core.aabbox3d
   method material_count : int
   method name : string

@@ -82,8 +82,10 @@ external node_add_child : obj -> obj -> unit = "ml_ISceneNode_addChild"
 
 external node_clone : obj -> obj option -> obj = "ml_ISceneNode_clone"
 
+(* TODO: update this function
 external node_get_automatic_culling : obj -> Irr_enums.culling_type =
   "ml_ISceneNode_getAutomaticCulling"
+*)
 
 external node_get_bounding_box : obj -> float Irr_core.aabbox3d =
   "ml_ISceneNode_getBoundingBox"
@@ -128,7 +130,9 @@ class node obj = object(self)
     let p = match parent with None -> None | Some (x : node) -> Some x#obj in
     let obj = node_clone self#obj p in
     new node obj
+  (* TODO: update this function
   method automatic_culling = node_get_automatic_culling self#obj
+  *)
   method bounding_box = node_get_bounding_box self#obj
   method material_count = node_get_material_count self#obj
   method name = node_get_name self#obj

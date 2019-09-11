@@ -10,7 +10,7 @@ value copy_Some(value v)
 }
 
 void null_pointer_exn() {
-	static value*  e = NULL;
+	static value const *  e = NULL;
 	if(e == NULL) {
 		e = caml_named_value("Null_pointer_exn");
 	}

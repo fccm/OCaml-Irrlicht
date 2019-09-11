@@ -4,7 +4,7 @@
 #include "caml/bigarray.h"
 
 void rendering_failed_exn() {
-	static value* e = NULL;
+	static value const * e = NULL;
 	if(e == NULL)
 		e = caml_named_value("Rendering_failed_exn");
 	caml_raise_constant(*e);
